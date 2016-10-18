@@ -1,0 +1,70 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+          <meta charset = "utf-8">
+          <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+          <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+       <title> Patient Details Page </title>
+   </head>
+   <body>
+
+        <form class="form-horizontal">
+            <input type="hidden" id="csrftoken" value="{{ csrf_token }}">
+            <h1 id="buttonHolder"> Patient Details </h1>
+            <div id="error_message"> </div>
+            <div class="container-fluid">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-2 col-lg-1 control-label " > Name : </label>
+                        <div class = "col-sm-8 col-md-10 col-lg-11 ">
+                            <input class="form-control" type="text" id="name" placeholder="enter your name ">
+                        </div>
+                </div>
+                <div class="form-group">
+                <label class="col-sm-4 col-md-2 col-lg-1 control-label" > Contact No. : </label>
+                    <div class = "col-sm-8 col-md-10 col-lg-11">
+                        <input class="form-control" type="text" id="contact" placeholder="enter your contact no. ">
+                    </div>
+                </div>
+                <div class="form-group">
+                <label class="col-sm-4 col-md-2 col-lg-1 control-label" > Email ID : </label>
+                    <div class = "col-sm-8 col-md-10 col-lg-11">
+                        <input class="form-control" type="text" id="emailid" placeholder="email ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-2 col-lg-0 control-label" > Gender :  </label>
+                    <div class="col-sm-4 col-sm-4 col-md-5 col-md-5 col-lg-6 col-lg-6 " >
+                        <input  type="radio" name="subject" id="gender_M" value = "M" > Male  </input>
+                        <input  type="radio" name="subject" id="gender_F" value = "F" > Female </input>
+                    </div>
+                </div>
+
+{#                doctors selection #}
+                <div class="form-group">
+                <label class="col-sm-4 col-md-2 col-lg-1 control-label"> Doctor : </label>
+                    <select id = "doctorselect" >
+                    </select>
+                </div>
+
+                <div class="form-group center ">
+                   <div class="col-xs-6 col-xs-offset-4 col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-6 col-lg-6 col-lg-offset-6">
+                        <input type= "button" id ="result" class="btn btn-primary btn-lg active" onclick = "getdata()" value="Submit"> </input>
+                    </div>
+                </div>
+                <div class="">
+                    <a class="btn btn-default btn-lg" href="/list/" role="button" ><strong> List of Patients </strong></a>
+                </div>
+            </div>
+        </form>
+
+
+   </body>
+    <script src = "{{ STATIC_URL }}js/script.js"></script>
+    <script type = "text/javascript">ControllerToHtml();</script>
+
+</html>
+
